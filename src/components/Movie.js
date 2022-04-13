@@ -10,8 +10,11 @@ class Movie extends React.Component
    */
     render()
     {
+        // Select a random image from the supplied URLs
+        const imageIndex = Math.floor(Math.random() * this.props.img.length);
         return (
             <article className="Movie">
+                <img src={this.props.img[imageIndex]} alt={"Affiche du film " + this.props.title}/>
                 <h2>{this.props.title}</h2>
                 <time>{this.props.release}</time>
                 <p>{this.props.director}</p>
