@@ -12,12 +12,17 @@ class App extends React.Component {
                 <Header/>
                 <main>
                     {
-                        movies.map(m => <Movie
-                            img={m.posterUrl}
+                        // {...m} : Takes key-value pairs from object 'm' and assigns them as props to the movie element
+                        // Said props are given the name of the key
+                        movies.map(m => <Movie {...m}
+                        // This is an automated way to do the following :
+                            /*
+                            posterUrl={m.posterUrl}
                             title={m.title}
-                            release={m.year}
+                            year={m.year}
                             director={m.director}
                             synopsis={m.synopsis}
+                             */
                         />)
                     }
                 </main>

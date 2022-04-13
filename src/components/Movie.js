@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/Movie.css";
+import Gallery from "./Gallery";
 
 class Movie extends React.Component
 {
@@ -10,15 +11,16 @@ class Movie extends React.Component
    */
     render()
     {
-        // Select a random image from the supplied URLs
-        const imageIndex = Math.floor(Math.random() * this.props.img.length);
+        // Put props into variables
+        const {posterUrl, title, year, director, synopsis} = this.props;
+
         return (
             <article className="Movie">
-                <img src={this.props.img[imageIndex]} alt={"Affiche du film " + this.props.title}/>
-                <h2>{this.props.title}</h2>
-                <time>{this.props.release}</time>
-                <p>{this.props.director}</p>
-                <p>{this.props.synopsis}</p>
+                <Gallery posterUrl={posterUrl} title={title}/>
+                <h2>{title}</h2>
+                <time>{year}</time>
+                <p>{director}</p>
+                <p>{synopsis}</p>
             </article>
         );
     }
