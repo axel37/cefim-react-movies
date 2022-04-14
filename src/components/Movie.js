@@ -20,7 +20,7 @@ class Movie extends React.Component
                 <h2>{title}</h2>
                 <time>{year}</time>
                 <p>{director}</p>
-                <p>{synopsis}</p>
+                <p className="synopsis">{synopsis}</p>
             </article>
         );
     }

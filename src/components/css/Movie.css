@@ -1,5 +1,6 @@
 .Movie {
     background-color: #fafafa;
+
     padding: 1rem;
     margin: 1rem auto 1rem auto;
     max-width: 25rem;
@@ -13,4 +14,8 @@
 
 .Movie time {
     font-size: 0.75em;
+}
+
+.Movie .synopsis {
+    text-align: justify;
 }

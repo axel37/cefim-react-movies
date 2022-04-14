@@ -14,7 +14,7 @@ class App extends React.Component {
                     {
                         // {...m} : Takes key-value pairs from object 'm' and assigns them as props to the movie element
                         // Said props are given the name of the key
-                        movies.map(m => <Movie {...m}
+                        movies.map(m => <Movie {...m} key={m.title + m.year}
                         // This is an automated way to do the following :
                             /*
                             posterUrl={m.posterUrl}
