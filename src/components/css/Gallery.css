@@ -18,24 +18,7 @@
 }
 
 .Gallery img:hover {
-    transform-origin: bottom right;
-    transform: translateZ(2rem) rotate3d(0, 0, 1, 7.5deg) rotate3d(0, 1, 0, -10deg);
-}
-
-.Gallery .start-rotating {
-    animation: start-rotate forwards ease-in 0.2s;
-}
-
-.Gallery .start-rotating-reverse {
-    animation: start-rotate backwards ease-in 0.2s;
-}
-
-.Gallery .end-rotating {
-    animation: end-rotate forwards ease-out 0.2s;
-}
-
-.Gallery .end-rotating-reverse {
-    animation: end-rotate backwards ease-out 0.2s;
+    transform: translateZ(1rem);
 }
 
 .Gallery button {
@@ -43,28 +26,5 @@
     border: none;
     font-size: 1.25em;
     font-weight: bold;
-}
-
-@keyframes start-rotate {
-    0% {
-        transform: rotate3d(1, 0, 0, 0deg);
-        filter: blur(0rem);
-    }
-    100% {
-        transform: rotate3d(1, 0, 0, 180deg);
-        filter: blur(0.25rem);
-    }
-}
-
-@keyframes end-rotate {
-    0% {
-        transform: rotate3d(1, 0, 0, 180deg);
-        filter: blur(0.25rem);
-
-    }
-    100% {
-        transform: rotate3d(1, 0, 0, 360deg);
-        filter: blur(0rem);
-
-    }
+    cursor: pointer;
 }

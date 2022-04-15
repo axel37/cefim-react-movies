@@ -1,13 +1,13 @@
 import React from "react";
+import "./css/Header.css";
 
 class Header extends React.Component
 {
     render()
     {
         return (
-            <header>
+            <header className="Header">
                 <h1>Mes films préférés</h1>
-                <small>Une liste de super films à voir et à revoir</small>
             </header>
         );
     }
