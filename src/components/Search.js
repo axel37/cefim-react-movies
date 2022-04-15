@@ -8,7 +8,7 @@ class Search extends React.Component
         return (
             <div className="Search">
                 <input type="text" id="filterTitle" placeholder="Titre..." onChange={this.props.onChangeCallback}></input>
-                <input type="number" id="filterYear" placeholder="Année..." onChange={this.props.onChangeCallback}></input>
+                <input type="number" id="filterYear" placeholder="Année..." min="0" onChange={this.props.onChangeCallback}></input>
                 <input type="text" id="filterDirector" placeholder="Réalisateur..." onChange={this.props.onChangeCallback}></input>
             </div>
         );

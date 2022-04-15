@@ -5,7 +5,7 @@ import Movie from "./components/Movie";
 
 import movies from "./data/movieData";
 import Search from "./components/Search";
-import Filters from "./components/Filters";
+import SortButtons from "./components/SortButtons";
 
 class App extends React.Component {
     constructor(props, context)
@@ -47,7 +47,7 @@ class App extends React.Component {
             <div className="App">
                 <Header/>
                 <Search onChangeCallback={this.filterMovies}/>
-                <Filters onChangeCallback={this.sortMovies}/>
+                <SortButtons onChangeCallback={this.sortMovies}/>
 
                 <main>
                     {

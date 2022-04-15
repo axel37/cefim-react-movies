@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/Filters.css";
 
-class Filters extends React.Component
+class SortButtons extends React.Component
 {
     render()
     {
@@ -21,4 +21,4 @@ class Filters extends React.Component
     }
 }
 
-export default Filters;
+export default SortButtons;

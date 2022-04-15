@@ -9,7 +9,9 @@ class Movie extends React.Component
     {
         super(props, context);
         this.state = {
-            "isShortSynopsis": true
+            "isVisible": true,
+            "isShortSynopsis": true,
+            "isFavourite": false
         };
     }
 
@@ -20,13 +22,18 @@ class Movie extends React.Component
    */
     render()
     {
+        if (this.state.isVisible)
+        {
         // Put props into variables
         const {posterUrl, title, year, director, synopsis} = this.props;
-        const {isShortSynopsis} = this.state;
+        const {isShortSynopsis, isFavourite} = this.state;
 
         return (
-            <article className="Movie">
+            <article className={isFavourite ? "Movie favourite" : "Movie"}>
                 <Gallery posterUrl={posterUrl} title={title}/>
+                <label>Favoris
+                    <input type="checkbox" onChange={this.setFavourite}></input>
+                </label>
                 <h2>{title}</h2>
                 <time>{year}</time>
                 <p>{director}</p>
@@ -34,13 +41,31 @@ class Movie extends React.Component
                 {
                     isShortSynopsis && <button onClick={this.showMore}>Lire Plus</button>
                 }
+                {
+                    !isFavourite && <button className="supprimer" onClick={this.removeMovie}>Supprimer le film</button>
+                }
             </article>
         );
+        }
     }
 
     showMore = () => {
         this.setState({
             "isShortSynopsis": false
+        });
+    }
+
+    setFavourite = evt => {
+        const checked = evt.target.checked;
+
+        this.setState({
+            "isFavourite": checked
+        });
+    }
+
+    removeMovie = () => {
+        this.setState({
+            "isVisible": false
         });
     }
 }

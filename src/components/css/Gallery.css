@@ -17,14 +17,16 @@
     transform-origin: top;
 }
 
-.Gallery img:hover {
-    transform: translateZ(1rem);
-}
-
 .Gallery button {
-    background: none;
-    border: none;
     font-size: 1.25em;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
+
+    transition: 0.5s cubic-bezier(.18,.89,0,1.69);
+}
+
+.Gallery button:hover {
+    transform: translateZ(1rem);
+
 }

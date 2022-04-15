@@ -8,6 +8,10 @@
     box-shadow: 0.25rem 0.25rem 0.1rem #ccc;
 }
 
+.favourite {
+    background-color: #cec;
+}
+
 .Movie * {
     margin: 0.5rem;
 }
@@ -18,4 +22,15 @@
 
 .Movie .synopsis {
     text-align: justify;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    text-decoration: underline;
+}
+
+.supprimer {
+    color: red;
 }
