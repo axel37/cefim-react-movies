@@ -8,7 +8,7 @@ class Header extends React.Component
     {
         return (
             <header className="Header">
-                <h1>Films / React</h1>
+                <h1>Movies / React</h1>
                 <img src={logo} className="App-logo" alt="React logo"/>
             </header>
         );
