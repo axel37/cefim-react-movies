@@ -1,5 +1,7 @@
 # Movies / React
 
+[Try it live here !](https://react-movies.choteau.cefim.o2switch.site/)
+
 ![Screenshot of the app. Show a list of movies.](screenshot.png)
 
 An interactive list of movies made with [React](https://reactjs.org/).
