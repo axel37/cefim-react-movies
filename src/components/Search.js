@@ -1,6 +1,11 @@
 import React from "react";
 import "./css/Search.css";
 
+/*
+    Search component
+    Three search inputs (title, year and director)
+    All input call the callback function provided as a prop
+ */
 class Search extends React.Component
 {
     render()

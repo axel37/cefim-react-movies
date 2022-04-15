@@ -2,6 +2,11 @@ import React from "react";
 import "./css/Movie.css";
 import Gallery from "./Gallery";
 
+/*
+    Movie component
+    Holds information about a movie, along with a poster Gallery (carousel)
+    Can be added to favourites and temporarily deleted
+ */
 class Movie extends React.Component
 {
 
@@ -11,15 +16,10 @@ class Movie extends React.Component
         this.state = {
             "isVisible": true,
             "isShortSynopsis": true,
-            "isFavourite": false
+            "isFavourite": localStorage.getItem(this.props.title + this.props.year)
         };
     }
 
-    /*
-   * Composant Movie
-   * Un film contiendra au moins un titre, une année de sortie, un réalisateur et
-   * un synopsis
-   */
     render()
     {
         if (this.state.isVisible)
@@ -32,7 +32,7 @@ class Movie extends React.Component
             <article className={isFavourite ? "Movie favourite" : "Movie"}>
                 <Gallery posterUrl={posterUrl} title={title}/>
                 <label>Favoris
-                    <input type="checkbox" onChange={this.setFavourite}></input>
+                    <input type="checkbox" onChange={this.setFavourite} checked={isFavourite}></input>
                 </label>
                 <h2>{title}</h2>
                 <time>{year}</time>
@@ -49,20 +49,31 @@ class Movie extends React.Component
         }
     }
 
+    /*
+        Show the full synopsis
+        By default, they are truncated
+     */
     showMore = () => {
         this.setState({
             "isShortSynopsis": false
         });
     }
 
+    /*
+        Sets a movie as a favourite.
+        Favourited movies cannot be removed
+     */
     setFavourite = evt => {
         const checked = evt.target.checked;
 
         this.setState({
             "isFavourite": checked
-        });
+        }, () => localStorage.setItem(this.props.title + this.props.year, checked));
     }
 
+    /*
+        (temporarily) Remove movie from the list.
+     */
     removeMovie = () => {
         this.setState({
             "isVisible": false

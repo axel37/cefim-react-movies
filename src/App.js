@@ -2,10 +2,10 @@ import React from "react";
 import './App.css';
 import Header from "./components/Header";
 import Movie from "./components/Movie";
-
-import movies from "./data/movieData";
 import Search from "./components/Search";
 import SortButtons from "./components/SortButtons";
+
+import movies from "./data/movieData";
 
 class App extends React.Component {
     constructor(props, context)
@@ -23,22 +23,22 @@ class App extends React.Component {
 
     render()
     {
-        const {filterTitle, filterYear, filterDirector} = this.state;
+        const {filterTitle, filterYear, filterDirector, sortByTitle, sortByYear, sortByDirector} = this.state;
 
         const moviesToDisplay = movies
             .filter(movie => movie.title.toLowerCase().includes(filterTitle))
             .filter(movie => String(movie.year).toLowerCase().startsWith(filterYear))
             .filter(movie => movie.director.toLowerCase().includes(filterDirector));
 
-        if (this.state.sortByTitle)
+        if (sortByTitle)
         {
             moviesToDisplay.sort((m1, m2) => m1.title.localeCompare(m2.title))
         }
-        if (this.state.sortByYear)
+        if (sortByYear)
         {
             moviesToDisplay.sort((m1, m2) => m2.year - m1.year)
         }
-        if (this.state.sortByDirector)
+        if (sortByDirector)
         {
             moviesToDisplay.sort((m1, m2) => m1.director.localeCompare(m2.director))
         }
@@ -60,6 +60,10 @@ class App extends React.Component {
         );
     }
 
+    /*
+        Set filters state.
+        Used to filter which movies are shown.
+     */
     filterMovies = evt => {
         const filterType = evt.target.id;
 
@@ -77,11 +81,13 @@ class App extends React.Component {
         }
     }
 
+    /*
+        Sets sorts states.
+        Used to filter in what orfers movies are shown.
+     */
     sortMovies = evt => {
         const sortType = evt.target.id;
-        const checked = evt.target.checked;
-
-        console.log(sortType + " : " + checked);
+        const checked = JSON.parse(evt.target.checked);
 
         if (sortType === "sortByTitle")
         {

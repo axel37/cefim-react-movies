@@ -1,6 +1,11 @@
 import React from "react";
 import "./css/Filters.css";
 
+/*
+    SortButtons component
+    Three checkboxes
+    All checkboxes call the callback function provided as a prop.
+ */
 class SortButtons extends React.Component
 {
     render()
