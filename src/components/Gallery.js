@@ -28,11 +28,11 @@ class Gallery extends React.Component
             <>
                 <div className="Gallery">
                     {/*{*/}
-                    {/*    urls.map(image => <img src={image} alt={"Affiche du film " + title} key={image}/>)*/}
+                    {/*    urls.map(image => <img src={image} alt={"Poster for the movie : " + title} key={image}/>)*/}
                     {/*}*/}
 
                     <button onClick={this.prevImage}>{'←'}</button>
-                    <img ref={this.imageRef} src={urls[this.state.currentPoster]} alt={"Affiche du film " + title} className={this.state.animationClass}/>
+                    <img ref={this.imageRef} src={urls[this.state.currentPoster]} alt={"Poster for the movie : " + title} className={this.state.animationClass}/>
                     <button onClick={this.nextImage}>{'→️'}</button>
                 </div>
             </>

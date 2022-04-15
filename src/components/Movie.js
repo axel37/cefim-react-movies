@@ -3,9 +3,9 @@ import "./css/Movie.css";
 import Gallery from "./Gallery";
 
 /*
-    Movie component
+    Component : Movie
     Holds information about a movie, along with a poster Gallery (carousel)
-    Can be added to favourites and temporarily deleted
+    Can be added to favorites and temporarily deleted
  */
 class Movie extends React.Component
 {
@@ -16,7 +16,7 @@ class Movie extends React.Component
         this.state = {
             "isVisible": true,
             "isShortSynopsis": true,
-            "isFavourite": localStorage.getItem(this.props.title + this.props.year)
+            "isfavorite": localStorage.getItem(this.props.title + this.props.year)
         };
     }
 
@@ -26,23 +26,23 @@ class Movie extends React.Component
         {
         // Put props into variables
         const {posterUrl, title, year, director, synopsis} = this.props;
-        const {isShortSynopsis, isFavourite} = this.state;
+        const {isShortSynopsis, isfavorite} = this.state;
 
         return (
-            <article className={isFavourite ? "Movie favourite" : "Movie"}>
+            <article className={isfavorite ? "Movie favorite" : "Movie"}>
                 <Gallery posterUrl={posterUrl} title={title}/>
-                <label>Favoris
-                    <input type="checkbox" onChange={this.setFavourite} checked={isFavourite}></input>
+                <label>Favorite
+                    <input type="checkbox" onChange={this.setfavorite} checked={isfavorite}/>
                 </label>
                 <h2>{title}</h2>
                 <time>{year}</time>
                 <p>{director}</p>
                 <p className="synopsis">{isShortSynopsis ? synopsis.substring(0, 50) + '...' : synopsis}</p>
                 {
-                    isShortSynopsis && <button onClick={this.showMore}>Lire Plus</button>
+                    isShortSynopsis && <button onClick={this.showMore}>Read More</button>
                 }
                 {
-                    !isFavourite && <button className="supprimer" onClick={this.removeMovie}>Supprimer le film</button>
+                    !isfavorite && <button className="remove" onClick={this.removeMovie}>Remove Movie</button>
                 }
             </article>
         );
@@ -60,14 +60,14 @@ class Movie extends React.Component
     }
 
     /*
-        Sets a movie as a favourite.
-        Favourited movies cannot be removed
+        Sets a movie as a favorite.
+        favorited movies cannot be removed
      */
-    setFavourite = evt => {
+    setfavorite = evt => {
         const checked = evt.target.checked;
 
         this.setState({
-            "isFavourite": checked
+            "isfavorite": checked
         }, () => localStorage.setItem(this.props.title + this.props.year, checked));
     }
 

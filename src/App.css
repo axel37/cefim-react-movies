@@ -3,7 +3,8 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  max-width: 3rem;
+  max-height: 3rem;
   pointer-events: none;
 }
 
@@ -24,18 +25,16 @@ label {
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    /* animation: App-logo-spin infinite 20s linear;*/
-    animation: App-logo-spin infinite 2.5s cubic-bezier(.12,.55,0,1.73);
+     animation: App-logo-spin infinite 20s linear;
+    /*animation: App-logo-spin infinite 2.5s cubic-bezier(.12,.55,0,1.73);*/
   }
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
-    filter: blur(4px);
   }
   to {
     transform: rotate(360deg);
-    filter: blur(0px);
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/Header.css";
+import logo from "../logo.svg"
 
 class Header extends React.Component
 {
@@ -7,7 +8,8 @@ class Header extends React.Component
     {
         return (
             <header className="Header">
-                <h1>Mes films préférés</h1>
+                <h1>Films / React</h1>
+                <img src={logo} className="App-logo" alt="React logo"/>
             </header>
         );
     }
